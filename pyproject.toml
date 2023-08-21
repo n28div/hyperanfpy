@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hyperhanfpy"
+version = "0.0.1"
+authors = [
+  { name="Nicolas Lazzari", email="nicolas.lazzari3@unibo.it" },
+]
+description = "HyperANF implmentation in Python."
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = ["networkx"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/n28div/hyperhanfpy"
+"Bug Tracker" = "https://github.com/n28div/hyperhanfpy/issues"
