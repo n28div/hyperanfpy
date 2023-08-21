@@ -78,15 +78,12 @@ class HyperANF(object):
 			cond = cond and (t >= self.max_depth)
 		return cond 
 	
-	def power(self, power: int, self_loops: bool = False) -> nx.Graph:
+	def power(self, power: int) -> nx.Graph:
 		"""
 		Computes the power graph by using the computed balls.
 
 		Args:
 				power (int): Power of the desired output.
-				self_loops (bool, optional): True if self-loops should be included in the adjacency graph. 
-					Defaults to false.
-
 		Returns:
 				nx.Graph: Output power graph.
 		"""
@@ -102,10 +99,8 @@ class HyperANF(object):
 				if power > 0:
 					nodes = nodes.difference(ball[power - 1].nodes)
 
-				# add the nodes to the graph avoiding self-loops
 				for to in nodes:
-					if node != to or self_loops:
-						out_g.add_edge(node, to, **self.g.get_edge_data(node, to, default={}))
+					out_g.add_edge(node, to, **self.g.get_edge_data(node, to, default={}))
 
 		return out_g
 
