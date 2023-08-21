@@ -88,6 +88,8 @@ class HyperANF(object):
 				nx.Graph: Output power graph.
 		"""
 		out_g = nx.Graph()
+		out_g.add_nodes_from(self.g.nodes)
+
 		for node in self.g.nodes:
 			ball = self.balls[node]
 			
