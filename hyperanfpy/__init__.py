@@ -1,1 +1,1 @@
-from hyperhanfpy.hyperanf import HyperANF
+from hyperanfpy.hyperanf import HyperANF
