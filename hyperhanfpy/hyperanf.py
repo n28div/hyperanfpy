@@ -78,7 +78,7 @@ class HyperANF(object):
 			cond = cond and (t >= self.max_depth)
 		return cond 
 	
-	def power_graph(self, power: int, self_loops: bool = False) -> nx.Graph:
+	def power(self, power: int, self_loops: bool = False) -> nx.Graph:
 		"""
 		Computes the power graph by using the computed balls.
 
