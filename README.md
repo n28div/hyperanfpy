@@ -20,7 +20,7 @@ pip install git+https://github.com/n28div/hyperhanfpy
 >>> from hyperhanfpy import HyperANF
 >>> hanf = HyperANF(g)
 >>> pg = hanf.power(3)
->>> EdgeView([(0, 2), (0, 3), (0, 4), (2, 3), (2, 4), (3, 4)])
+EdgeView([(0, 2), (0, 3), (0, 4), (2, 3), (2, 4), (3, 4)])
 ```
 
 ## Acknowledgments
