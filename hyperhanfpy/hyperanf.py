@@ -95,12 +95,17 @@ class HyperANF(object):
 			ball = self.balls[node]
 			
 			# extract the nodes at `power` distance
-			nodes = ball[min(power, len(ball) - 1)].nodes
+			if len(ball) > power:
+				nodes = ball[power].nodes
 
-			# add the nodes to the graph avoiding self-loops
-			for to in nodes:
-				if node != to or self_loops:
-					out_g.add_edge(node, to, **self.g.get_edge_data(node, to, default={}))
+				# remove nodes from previous ball
+				if power > 0:
+					nodes = nodes.difference(ball[power - 1].nodes)
+
+				# add the nodes to the graph avoiding self-loops
+				for to in nodes:
+					if node != to or self_loops:
+						out_g.add_edge(node, to, **self.g.get_edge_data(node, to, default={}))
 
 		return out_g
 
