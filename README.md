@@ -18,6 +18,7 @@ pip install git+https://github.com/n28div/hyperhanfpy
 >>> import networkx
 >>> g = networkx.gnp_random_graph(5, 0.5, seed=42)
 >>> from hyperhanfpy import HyperANF
+>>> hanf = HyperANF(g)
 >>> pg = hanf.power(3)
 >>> EdgeView([(0, 2), (0, 3), (0, 4), (2, 3), (2, 4), (3, 4)])
 ```
