@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "hyperhanfpy"
+name = "hyperanfpy"
 version = "0.0.1"
 authors = [
   { name="Nicolas Lazzari", email="nicolas.lazzari3@unibo.it" },

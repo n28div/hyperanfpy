@@ -10,7 +10,7 @@ import networkx as nx
 from collections import defaultdict
 from copy import copy
 
-from hyperhanfpy.hyperloglog import HyperLogLog
+from hyperanfpy.hyperloglog import HyperLogLog
 
 
 class HyperANF(object):
@@ -78,12 +78,14 @@ class HyperANF(object):
 			cond = cond and (t >= self.max_depth)
 		return cond 
 	
-	def power(self, power: int) -> nx.Graph:
+	def power(self, power: int, remove_previous: bool = False) -> nx.Graph:
 		"""
 		Computes the power graph by using the computed balls.
 
 		Args:
 				power (int): Power of the desired output.
+				remove_previous (bool): If True outputs the nodes at exact distance K.
+					If False outputs the nodes at distance <= K. Use False for same behaviour as NetworkX Graph.power.
 		Returns:
 				nx.Graph: Output power graph.
 		"""
@@ -98,11 +100,12 @@ class HyperANF(object):
 				nodes = ball[power].nodes
 
 				# remove nodes from previous ball
-				if power > 0:
+				if remove_previous and power > 0:
 					nodes = nodes.difference(ball[power - 1].nodes)
 
 				for to in nodes:
-					out_g.add_edge(node, to, **self.g.get_edge_data(node, to, default={}))
+					if to != node:
+						out_g.add_edge(node, to, **self.g.get_edge_data(node, to, default={}))
 
 		return out_g
 
